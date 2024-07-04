@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+    --primary-blue-color: #1d9bf0;
+}
+
+body{
+    transition: 200ms ease-in-out;
+}

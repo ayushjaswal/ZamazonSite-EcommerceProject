@@ -1,0 +1,23 @@
+.grad {
+  background: linear-gradient(-45deg, #000000, #2a0b17, #00171f, #013428);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  height: 100vh;
+}
+.grad2 {
+  background: linear-gradient(-45deg, #000000, #2a0b17, #0700849d, #000000);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  /* height: 100vh; */
+}
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

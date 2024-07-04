@@ -1,0 +1,6 @@
+.navinput {
+  @apply outline-none border-[1px] bg-gray-100 py-2 px-3 w-full rounded-full hover:bg-gray-200 transition duration-200 ease-in-out focus-within:ring-2;
+}
+.input {
+  @apply outline-none border-[1px] bg-gray-100 py-1 px-3 w-full rounded-md hover:bg-gray-200 transition duration-200 ease-in-out focus-within:ring-2;
+}
