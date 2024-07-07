@@ -1,31 +1,38 @@
-import { Check, ShoppingBag, ShoppingCart } from "react-feather";
-import { ProductData } from "../types";
+import { Check, ShoppingCart } from "react-feather";
+import { CardProps } from "../types";
 import { useDispatch, useSelector } from "react-redux";
-import { addtoCart } from "../store/features/Auth";
-import { RootState } from "../store/store";
+import { asyncAddtoCart } from "../store/features/Auth";
+import { AppDispatch, RootState } from "../store/store";
+import StarRatings from "react-star-ratings";
 import { useNavigate } from "react-router-dom";
 import commaNumber from "comma-number";
 
 const Card = ({
   productName,
-  productDescription,
   images,
   _id,
-  category,
   price,
-}: ProductData) => {
-  const dispatch = useDispatch();
+  review,
+  reviewValue,
+}: CardProps) => {
+  const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate();
   const user = useSelector((state: RootState) => state.authUser);
+  const val = reviewValue / (review?.length || 1);
   return (
     <div
       className="relative w-[80%] hover:shadow-lg text-center rounded-2xl 
      border transition duration-200 ease-in-out py-1 px-2"
     >
       <div
-        className="cursor-pointer"
+        className="cursor-pointer flex flex-col gap-2"
         onClick={() => navigate(`product/${_id}`)}
       >
+        <StarRatings
+          rating={val || 0}
+          starRatedColor="blue"
+          starDimension="20px"
+        />
         {images[0]?.imageUrl && (
           <img
             className="object-contain rounded-lg w-[100%] h-[15rem]"
@@ -40,8 +47,13 @@ const Card = ({
         {productName}
       </div>
       <button className="absolute top-0 right-0 p-2 m-2 bg-purple-400 rounded-full text-white size-8 flex items-center hover:bg-purple-500 transition duration-200 ease-in-out">
-        {!user.cart?.includes(_id!) ? (
-          <ShoppingCart onClick={() => dispatch(addtoCart(_id))} size={16} />
+        {!user.cart || !user.cart.some((val) => val.product._id === _id) ? (
+          <ShoppingCart
+            onClick={() => {
+              dispatch(asyncAddtoCart({ email: user!.email, product: _id! }));
+            }}
+            size={16}
+          />
         ) : (
           <Check />
         )}

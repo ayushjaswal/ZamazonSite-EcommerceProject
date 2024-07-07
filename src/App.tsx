@@ -7,6 +7,10 @@ import { GoogleOAuthProvider } from "@react-oauth/google";
 import ProtectedRoute from "./ProtectedRoute";
 import Login from "./Auth/Login";
 import Product from "./Product/Product";
+import Cart from "./Cart/Cart";
+import ConfirmCheckout from "./Checkout/ConfirmCheckout";
+import SuccessPage from "./EndPages/SuccessPage";
+import FailurePage from "./EndPages/FailurePage";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +32,38 @@ const router = createBrowserRouter([
   {
     path: "login",
     element: <Login />,
+  },
+  {
+    path: "cart",
+    element: (
+      <ProtectedRoute>
+        <Cart />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "confirmCheckout",
+    element: (
+      <ProtectedRoute>
+        <ConfirmCheckout />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "orderSuccess",
+    element: (
+      <ProtectedRoute>
+        <SuccessPage />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "orderFailed",
+    element: (
+      <ProtectedRoute>
+        <FailurePage />
+      </ProtectedRoute>
+    ),
   },
 ]);
 

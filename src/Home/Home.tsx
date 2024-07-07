@@ -27,7 +27,7 @@ const Home = () => {
       }
     }
     getProducts();
-  });
+  }, []);
 
   return (
     <div className="flex gap-2 flex-col ">
@@ -79,9 +79,9 @@ const Home = () => {
                 productName={product?.productName || ""}
                 images={product?.images || []}
                 price={product?.price || 0}
-                category={product?.category || ""}
-                productDescription={product?.productDescription || ""}
-                _id={product._id}
+                _id={product._id!}
+                review={product!.review || []}
+                reviewValue={product.reviewValue || 0}
               />
             ))}
           </div>
