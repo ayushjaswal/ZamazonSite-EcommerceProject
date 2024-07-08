@@ -50,7 +50,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "orderSuccess",
+    path: "orderSuccess/:orderId",
     element: (
       <ProtectedRoute>
         <SuccessPage />

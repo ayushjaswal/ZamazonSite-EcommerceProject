@@ -1,14 +1,15 @@
 import { useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { path } from "../variable";
 import { config } from "../types";
 import { Check } from "react-feather";
 
 const SuccessPage = () => {
+  const { orderId } = useParams();
   useEffect(() => {
     async function clearCart() {
-      const res = await axios.get(`${path}/clear-cart`, config);
+      const res = await axios.get(`${path}/clear-cart/${orderId}`, config);
     }
     clearCart();
   }, []);

@@ -169,12 +169,12 @@ const Product = () => {
   }
 
   return (
-    <div className="flex sm:flex sm:flex-col gap-2 flex-col">
+    <div className="flex  gap-2 flex-col">
       <Navbar />
       <Toaster richColors position="bottom-center" />
-      <div className="mt-24 px-12">
-        <div className="flex gap-2 ">
-          <div className="flex flex-col gap-2 ">
+      <div className="mt-24 px-2 md:px-12">
+        <div className="md:flex  gap-2 ">
+          <div className="flex flex-row md:flex-col gap-2 ">
             {product?.images.map((image) => (
               <div
                 onClick={() => setShowImage(image.imageUrl)}
@@ -189,7 +189,7 @@ const Product = () => {
           </div>
           <div className="flex items-center justify-center md:w-full border rounded-md">
             <img
-              className="w-[34rem] h-[30rem] object-contain "
+              className="md:w-[34rem] md:h-[30rem]  object-contain "
               src={showImage}
             />
           </div>
@@ -244,7 +244,11 @@ const Product = () => {
                 </button>
               )}
               <button
-                onClick={() => navigate("/cart")}
+                onClick={() => {
+                  dispatch(
+                    asyncAddtoCart({ product: id!, email: user.email })
+                  )
+                  navigate("/cart")}}
                 className="w-full border p-3 px-5 cursor-pointer bg-blue-600 hover:bg-blue-700 rounded-lg text-white transition duration-200 ease-in-out"
               >
                 Buy Now
@@ -253,8 +257,8 @@ const Product = () => {
           </div>
         </div>
         <div>
-          <div className="m-4">
-            <h1>Rate this product</h1>
+          <div className="md:m-4">
+            <h1 >Rate this product</h1>
             <ReactStars
               count={5}
               onChange={(e: number) =>
@@ -264,7 +268,7 @@ const Product = () => {
               value={review.stars}
               activeColor="#ffd700"
             />
-            <div>
+            <div className="flex flex-wrap gap-3 w-full justify-center">
               {isUploading && (
                 <div className="w-24 h-24 flex items-center justify-center bg-gray-400 rounded-md ">
                   <ClipLoader color="#d3f7c3" speedMultiplier={1} />
@@ -274,7 +278,7 @@ const Product = () => {
                 <div className="relative">
                   <img
                     key={image.id}
-                    className="w-24 h-24 rounded-lg my-2"
+                    className="w-24 h-24 rounded-lg my-2 object-contain"
                     src={image.imageUrl}
                   />
                   <button
@@ -311,13 +315,13 @@ const Product = () => {
               <button
                 disabled={!review.comment}
                 onClick={handleReviewSubmit}
-                className="w-1/5 border  cursor-pointer bg-blue-600 hover:bg-blue-700 rounded-lg text-white transition duration-200 ease-in-out"
+                className="w-1/5 border text-xs md:text-[1rem] p-2 cursor-pointer bg-blue-600 hover:bg-blue-700 rounded-lg text-white transition duration-200 ease-in-out"
               >
                 Submit
               </button>
             </div>
           </div>
-          <div className="m-4 flex flex-col gap-2">
+          <div className="md:m-4 flex flex-col gap-2">
             <h1>Reviews</h1>
             {product &&
               product.review &&

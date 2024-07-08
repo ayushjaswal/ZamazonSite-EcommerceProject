@@ -30,39 +30,31 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="flex gap-2 flex-col ">
-      <Navbar />
-      <div className="mt-[2rem]">
-        <div className="relative grad2 h-[24rem] w-full sm:px-[3rem] md:px-24 flex items-center">
-          <div className="font-extrabold text-white w-full lg:w-[20rem] lg:text-5xl md:w-[15rem] md:text-2xl sm:w-[10rem] sm:text-xl">
+    <div className=" ">
+      <div className="flex">
+        <Navbar />
+      </div>
+      <div className="mt-24 ">
+        <div className=" grad2 p-12 md:p-12 md:h-[30rem] md:flex">
+          <div className="text-white md:text-4xl font-extrabold text-center h-full flex flex-col items-center justify-center">
             Dive into the soul of power
-            <div className="text-xs font-thin mt-4">
-              {/* {featuredProduct?.properties?.map((prop, index) => (
-              <div key={index} className="flex gap-2">
-              {Object.entries(prop).map(([key, value]) => (
-                  <div key={key} className="flex gap-2">
-                    <div>{key}:</div>
-                    <div>{Array.isArray(value) ? value.join(", ") : value}</div>
-                  </div>
-                  ))}
-              </div>
-            ))} */}
+            <div className="md:text-[14px] font-thin mt-4">
               {featuredProduct?.productDescription.split(".")[0]}
             </div>
           </div>
           <button
             onClick={() => navigate(`product/${featuredProduct?._id}`)}
-            className="ml-10 w-full flex overflow-hidden items-center justify-center h-full"
+            className="md:ml-10 w-full md:flex-row flex-col items-center justify-center flex"
           >
             <img
               style={{
                 mixBlendMode: "multiply",
               }}
-              className="rounded-2xl lg:w-[30rem] md:w-[20rem] sm:w-[15rem] w-[10rem]"
+              className="rounded-2xl lg:w-[30rem] md:w-[20rem] sm:w-[15rem] flex md:block justify-center md:justify-normal w-full"
               src={featuredProduct?.images[0].imageUrl}
               alt={featuredProduct?.productName}
             />
-            <div className="font-extrabold hover:underline text-white lg:text-2xl md:text-xl sm:text-lg text-sm mt-2">
+            <div className="text-white text-center md:text-[2rem] font-semibold">
               {featuredProduct?.productName}
             </div>
           </button>
@@ -71,9 +63,9 @@ const Home = () => {
             *All rights to company
           </div>
         </div>
-        <div className="p-2 px-24 ">
+        <div className="md:p-2 flex flex-col w-full items-center ">
           <h1>New Arrivals</h1>
-          <div className="grid grid-cols-3 gap-4">
+          <div className=" flex flex-col w-full items-center md:grid md:grid-cols-3 gap-2">
             {products.map((product) => (
               <Card
                 productName={product?.productName || ""}

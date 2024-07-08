@@ -52,7 +52,7 @@ const ConfirmCheckout = () => {
   }
 
   return (
-    <div className="flex sm:flex sm:flex-col gap-2 flex-col">
+    <div className="flex gap-2 flex-col">
       <div
         onClick={() => navigate("/cart")}
         className="w-[2rem] hover:text-red-400 cursor-pointer p-4"
@@ -60,7 +60,7 @@ const ConfirmCheckout = () => {
         Back
       </div>
       <div className=" flex justify-center">
-        <div className="px-24 py-12 mb-12 border border-gray-300 shadow-lg rounded-lg bg-white">
+        <div className=" px-2 py-2  m-2 md:m-0 md:text-[1rem] text-[10px] md:px-24 md:py-12 mb-12 border border-gray-300 shadow-lg rounded-lg bg-white">
           <h1 className="text-3xl font-bold mb-6 text-center">
             Checkout Invoice
           </h1>
