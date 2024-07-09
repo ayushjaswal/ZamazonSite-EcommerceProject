@@ -5,7 +5,6 @@ import {
   AuthState,
   config,
   ErrorResponse,
-  ProductData,
 } from "../../types";
 import { path } from "../../variable";
 import axios from "axios";

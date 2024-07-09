@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { path } from "../variable";
-import { Address, CartProduct, OrderProp, ProductData, config } from "../types";
-import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch, RootState } from "../store/store";
-import { redirect, useLocation, useNavigate } from "react-router-dom";
+import { Address, CartProduct, OrderProp, config } from "../types";
+import { useSelector } from "react-redux";
+import { RootState } from "../store/store";
+import { useLocation, useNavigate } from "react-router-dom";
 import commaNumber from "comma-number";
 
 const ConfirmCheckout = () => {

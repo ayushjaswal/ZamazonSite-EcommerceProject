@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import { RootState } from "../store/store";
-import { Search, Settings, ShoppingCart } from "react-feather";
+import { Search,  ShoppingCart } from "react-feather";
 import "./navbar.css";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";

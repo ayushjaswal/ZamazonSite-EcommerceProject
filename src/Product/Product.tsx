@@ -35,7 +35,6 @@ const Product = () => {
     images: [],
     user: user,
   });
-  const [imageUpload, setImageUpload] = useState();
   const [isUploading, setIsUploading] = useState(false);
   const [rating, setRating] = useState(0);
   useEffect(() => {
@@ -297,7 +296,6 @@ const Product = () => {
               <label className="bg-gray-100 p-2 rounded-md border shadow-sm hover:bg-gray-200transition duration-200 ease-in-out cursor-pointer">
                 <Upload />
                 <input
-                  value={imageUpload}
                   onChange={uploadImage}
                   type="file"
                   accept=".jpg, .jpeg, .png"
