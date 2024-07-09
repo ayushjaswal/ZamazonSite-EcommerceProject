@@ -1,1 +1,1 @@
-export const path = "http://localhost:2000";
+export const path = "https://zamazongserver-ecommerceproject-production.up.railway.app";
