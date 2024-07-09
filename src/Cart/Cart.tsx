@@ -24,10 +24,7 @@ const Cart = () => {
       }
     }
     getCart();
-  }, [dispatch, user]);
-  useEffect(() => {
-    console.log(cart);
-  }, [cart]);
+  }, []);
 
   // function removeFromCart(id: string) {
 
